@@ -1,4 +1,4 @@
-// src/app/list-business/page.jsx
+// src/app/add-service/page.jsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -15,7 +15,7 @@ export default function ListBusinessPage() {
     if (status === "loading") return;
 
     if (!session) {
-      router.push("/login?callbackUrl=/list-business");
+      router.push("/login?callbackUrl=/add-service");
       return;
     }
 

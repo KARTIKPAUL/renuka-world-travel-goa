@@ -1,4 +1,4 @@
-// src/app/api/businesses/route.js (Updated with enhanced search)
+// src/app/api/services/route.js (Updated with enhanced search)
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";

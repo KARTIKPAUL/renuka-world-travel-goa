@@ -1,4 +1,4 @@
-// src/app/businesses/[id]/page.jsx
+// src/app/services/[id]/page.jsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -51,7 +51,7 @@ export default function BusinessDetailPage() {
 
   const fetchBusiness = async () => {
     try {
-      const response = await fetch(`/api/businesses/${id}`);
+      const response = await fetch(`/api/services/${id}`);
       const data = await response.json();
 
       if (!response.ok) {
@@ -135,8 +135,8 @@ export default function BusinessDetailPage() {
           <p className="text-gray-600 mb-6">
             {error || "The business you are looking for does not exist."}
           </p>
-          <Link href="/businesses" className="btn-primary">
-            Back to Businesses
+          <Link href="/services" className="btn-primary">
+            Back to Services
           </Link>
         </div>
       </div>
@@ -159,14 +159,14 @@ export default function BusinessDetailPage() {
               </div>
               <div className="flex items-center space-x-2">
                 <Link
-                  href={`/dashboard/businesses/edit/${id}`}
+                  href={`/dashboard/services/edit/${id}`}
                   className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
                 >
                   <Edit className="h-4 w-4 mr-2" />
                   Edit Business
                 </Link>
                 <Link
-                  href="/dashboard/businesses"
+                  href="/dashboard/services"
                   className="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
                 >
                   <Settings className="h-4 w-4 mr-2" />

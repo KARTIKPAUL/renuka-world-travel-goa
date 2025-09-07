@@ -354,7 +354,7 @@ export default function BusinessListingForm() {
 
       console.log("Business data being sent:", businessData);
 
-      const response = await fetch("/api/businesses", {
+      const response = await fetch("/api/services", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -370,7 +370,7 @@ export default function BusinessListingForm() {
 
       setSuccess(true);
       setTimeout(() => {
-        router.push("/dashboard/businesses");
+        router.push("/dashboard/services");
       }, 3000);
     } catch (error) {
       console.error("Submission error:", error);

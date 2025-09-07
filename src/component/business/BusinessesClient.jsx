@@ -36,7 +36,7 @@ export default function BusinessesClient() {
     try {
       // Use the passed search term or get the latest from searchParams
       const search = currentSearch ?? searchParams.get("search");
-      const url = `/api/businesses${
+      const url = `/api/services${
         search ? `?search=${encodeURIComponent(search)}` : ""
       }`;
 

@@ -1,4 +1,4 @@
-// src/app/api/businesses/[id]/route.js
+// src/app/api/services/[id]/route.js
 import { NextResponse } from "next/server";
 
 import connectDB from "../../../../../lib/mongodb";

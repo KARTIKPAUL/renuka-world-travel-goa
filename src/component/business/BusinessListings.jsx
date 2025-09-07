@@ -56,7 +56,7 @@ export default function BusinessListings({
 
       console.log("Fetching businesses with params:", params.toString());
 
-      const response = await fetch(`/api/businesses?${params.toString()}`);
+      const response = await fetch(`/api/services?${params.toString()}`);
       const data = await response.json();
 
       if (response.ok) {
@@ -86,7 +86,7 @@ export default function BusinessListings({
       params.append("limit", "6"); // Show fewer for homepage
       params.append("sortBy", "featured");
 
-      const response = await fetch(`/api/businesses?${params.toString()}`);
+      const response = await fetch(`/api/services?${params.toString()}`);
       const data = await response.json();
 
       if (response.ok) {
@@ -317,7 +317,7 @@ export default function BusinessListings({
             {!isSearchActive && (
               <div className="text-center mt-12">
                 <a
-                  href="/businesses"
+                  href="/services"
                   className="inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg transition-colors font-medium"
                 >
                   View All Services
@@ -349,7 +349,7 @@ export default function BusinessListings({
                     Clear Search
                   </button>
                   <a
-                    href="/businesses"
+                    href="/services"
                     className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-lg transition-colors font-medium"
                   >
                     View All Services

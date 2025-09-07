@@ -31,7 +31,7 @@ const ReviewSystem = ({ businessId, isOwner }) => {
   const fetchReviews = async () => {
     try {
       const response = await fetch(
-        `/api/businesses/${businessId}/reviews?page=${currentPage}&limit=5`
+        `/api/services/${businessId}/reviews?page=${currentPage}&limit=5`
       );
       const data = await response.json();
 
@@ -147,7 +147,7 @@ const ReviewSystem = ({ businessId, isOwner }) => {
     setSubmitting(true);
 
     try {
-      const response = await fetch(`/api/businesses/${businessId}/reviews`, {
+      const response = await fetch(`/api/services/${businessId}/reviews`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -46,7 +46,7 @@ export default function BusinessCard({ business }) {
         </div>
 
         <Link
-          href={`/businesses/${business._id}`}
+          href={`/services/${business._id}`}
           className="w-full bg-primary-600 hover:bg-primary-700 text-white py-2 rounded-lg transition-colors text-center block"
         >
           View Details

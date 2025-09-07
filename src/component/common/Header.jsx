@@ -50,7 +50,7 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-1">
             {session?.user?.role === "business_owner" && (
               <Link
-                href="/businesses"
+                href="/services"
                 className="px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium"
               >
                 Servicess
@@ -59,14 +59,14 @@ export default function Header() {
 
             {session?.user?.role === "business_owner" ? (
               <Link
-                href="/list-business"
+                href="/add-service"
                 className="px-4 py-2 mx-2 bg-green-600 text-white hover:bg-green-700 rounded-lg transition-all duration-200 font-medium shadow-sm"
               >
                 Add New Service
               </Link>
             ) : (
               <Link
-                href="/businesses"
+                href="/services"
                 className="px-4 py-2 mx-2 bg-green-600 text-white hover:bg-green-700 rounded-lg transition-all duration-200 font-medium shadow-sm"
               >
                 View Service
@@ -157,7 +157,7 @@ export default function Header() {
             <div className="px-2 pt-4 pb-6 ">
               {session?.user?.role === "business_owner" && (
                 <Link
-                  href="/businesses"
+                  href="/services"
                   className="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all font-medium"
                   onClick={closeMenus}
                 >
@@ -167,7 +167,7 @@ export default function Header() {
 
               {session?.user?.role === "business_owner" ? (
                 <Link
-                  href="/list-business"
+                  href="/add-service"
                   className="block px-4 py-3 text-green-600 hover:text-green-700 hover:bg-green-50 rounded-lg transition-all font-medium border border-green-200"
                   onClick={closeMenus}
                 >
@@ -175,7 +175,7 @@ export default function Header() {
                 </Link>
               ) : (
                 <Link
-                  href="/businesses"
+                  href="/services"
                   className="block px-4 py-3 text-green-600 hover:text-green-700 hover:bg-green-50 rounded-lg transition-all font-medium border border-green-200"
                   onClick={closeMenus}
                 >

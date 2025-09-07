@@ -1,4 +1,4 @@
-// src/app/dashboard/businesses/page.jsx
+// src/app/dashboard/services/page.jsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -35,7 +35,7 @@ export default function UserBusinessesPage() {
 
   const fetchUserBusinesses = async () => {
     try {
-      const response = await fetch(`/api/businesses?owner=${session.user.id}`);
+      const response = await fetch(`/api/services?owner=${session.user.id}`);
       const data = await response.json();
       setBusinesses(data.businesses || []);
     } catch (error) {
@@ -75,7 +75,7 @@ export default function UserBusinessesPage() {
           <p className="text-gray-600 mt-2">Manage Service</p>
         </div>
         <Link
-          href="/list-business"
+          href="/add-service"
           className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
         >
           <Plus className="h-5 w-5 mr-2" />
@@ -93,7 +93,7 @@ export default function UserBusinessesPage() {
             Start by listing your first business
           </p>
           <Link
-            href="/list-business"
+            href="/add-service"
             className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
           >
             <Plus className="h-5 w-5 mr-2" />

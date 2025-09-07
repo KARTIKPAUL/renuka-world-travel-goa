@@ -127,7 +127,7 @@ export default function Hero({ onSearch, onCategoryChange }) {
 
     try {
       const response = await fetch(
-        `/api/businesses/suggestions?q=${encodeURIComponent(query)}&limit=8`
+        `/api/services/suggestions?q=${encodeURIComponent(query)}&limit=8`
       );
       const data = await response.json();
 

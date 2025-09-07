@@ -41,7 +41,7 @@ export default function Dashboard() {
 
   const fetchUserBusinesses = async () => {
     try {
-      const response = await fetch(`/api/businesses?owner=${session.user.id}`);
+      const response = await fetch(`/api/services?owner=${session.user.id}`);
       const data = await response.json();
       setUserBusinesses(data.businesses || []);
     } catch (error) {
@@ -151,7 +151,7 @@ export default function Dashboard() {
             </h2>
             <div className="space-y-3">
               <Link
-                href="/list-business"
+                href="/add-service"
                 className="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
               >
                 <Plus className="h-5 w-5 text-primary-600 mr-3" />
@@ -162,7 +162,7 @@ export default function Dashboard() {
               </Link>
 
               <Link
-                href="/dashboard/businesses"
+                href="/dashboard/services"
                 className="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
               >
                 <Building2 className="h-5 w-5 text-primary-600 mr-3" />
@@ -220,7 +220,7 @@ export default function Dashboard() {
                         </p>
                       </div>
                       <Link
-                        href={`/dashboard/businesses`}
+                        href={`/dashboard/services`}
                         className="text-primary-600 hover:text-primary-700 text-sm font-medium"
                       >
                         View
