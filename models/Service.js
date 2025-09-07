@@ -19,8 +19,8 @@ const BusinessSchema = new mongoose.Schema(
       street: { type: String, required: true },
       area: { type: String, required: true },
       pincode: { type: String, required: true },
-      city: { type: String, default: "Coochbehar" },
-      state: { type: String, default: "West Bangal" },
+      city: { type: String },
+      state: { type: String },
     },
     location: {
       type: { type: String, default: "Point" },

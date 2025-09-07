@@ -2,7 +2,7 @@
 import { NextResponse } from "next/server";
 
 import connectDB from "../../../../../lib/mongodb";
-import Business from "../../../../../models/Business";
+import Business from "../../../../../models/Service";
 
 export async function GET(request, { params }) {
   try {

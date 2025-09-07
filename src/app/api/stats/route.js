@@ -2,7 +2,7 @@
 
 // src/app/api/stats/route.js
 import dbConnect from "../../../../lib/mongodb"
-import Business from '../../../../models/Business';
+import Business from '../../../../models/Service';
 import Review from '../../../../models/Review';
 import User from '../../../../models/User';
 

@@ -101,7 +101,7 @@ export const authOptions = {
                   email: user.email,
                 },
               },
-              role: "customer",
+              role: "user",
               isProfileComplete: false,
               lastLoginAt: new Date(),
             });

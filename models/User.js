@@ -55,8 +55,8 @@ const UserSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ["customer", "business_owner", "admin"],
-      default: "customer",
+      enum: ["user", "owner", "admin"],
+      default: "user",
     },
     isVerified: { type: Boolean, default: false },
     isProfileComplete: { type: Boolean, default: false },

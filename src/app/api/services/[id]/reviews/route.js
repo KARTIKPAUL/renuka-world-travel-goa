@@ -1,6 +1,6 @@
 import dbConnect from '../../../../../../lib/mongodb';
 import Review from '../../../../../../models/Review';
-import Business from '../../../../../../models/Business';
+import Business from '../../../../../../models/Service';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../../../../api/auth/[...nextauth]/route';
 

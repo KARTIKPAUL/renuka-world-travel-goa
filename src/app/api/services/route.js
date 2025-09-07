@@ -2,7 +2,7 @@
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import Business from "../../../../models/Business";
+import Business from "../../../../models/Service";
 import connectDB from "../../../../lib/mongodb";
 import Category from "../../../../models/Category";
 

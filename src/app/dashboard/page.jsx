@@ -143,7 +143,7 @@ export default function Dashboard() {
       </div>
 
       {/* Quick Actions & Recent Activity */}
-      {session.user.role === "business_owner" && (
+      {session.user.role === "owner" && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">
@@ -242,7 +242,7 @@ export default function Dashboard() {
       )}
 
       {/* Business Owner Specific Section */}
-      {session.user.role === "business_owner" && (
+      {session.user.role === "owner" && (
         <div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-lg p-6 text-white">
           <h2 className="text-2xl font-bold mb-2">Grow Your Business</h2>
           <p className="mb-4">

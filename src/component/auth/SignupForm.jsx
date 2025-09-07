@@ -23,7 +23,7 @@ export default function SignupForm() {
     password: "",
     confirmPassword: "",
     phone: "",
-    role: "customer",
+    role: "user",
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -222,8 +222,8 @@ export default function SignupForm() {
               onChange={handleInputChange}
               className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             >
-              <option value="customer">Customer</option>
-              <option value="business_owner">Business Owner</option>
+              <option value="user">user</option>
+              <option value="owner">Owner</option>
             </select>
           </div>
         </div>
