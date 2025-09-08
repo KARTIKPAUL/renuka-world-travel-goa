@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 import CategoryGrid from "@/component/home/CategoryGrid";
 import Hero from "@/component/home/Hero";
-import BusinessListings from '@/component/business/BusinessListings';
+import BusinessListings from '@/component/service/ServiceListings';
 
 export default function Home() {
   const [searchParams, setSearchParams] = useState(null);

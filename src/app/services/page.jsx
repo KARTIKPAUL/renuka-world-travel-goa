@@ -1,4 +1,4 @@
-import BusinessesClient from "@/component/business/BusinessesClient";
+import BusinessesClient from "@/component/service/ServiceClient";
 import { Suspense } from "react";
 
 

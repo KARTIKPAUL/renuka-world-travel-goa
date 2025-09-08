@@ -26,7 +26,7 @@ import {
   Crown,
 } from "lucide-react";
 import Link from "next/link";
-import ReviewSystem from "@/component/business/ReviewSystem";
+import ReviewSystem from "@/component/service/ReviewSystem";
 
 export default function BusinessDetailPage() {
   const { id } = useParams();

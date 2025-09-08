@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import { Filter, SortAsc, X, AlertCircle, RefreshCw } from "lucide-react";
-import BusinessCard from "./BusinessCard";
+import BusinessCard from "./ServiceCard";
 
 export default function BusinessListings({
   searchParams,

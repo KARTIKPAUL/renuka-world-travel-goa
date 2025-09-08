@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { Search } from "lucide-react";
-import BusinessCard from "./BusinessCard";
+import BusinessCard from "./ServiceCard";
 
 // The loading spinner component can also be extracted or kept here
 function LoadingSpinner() {

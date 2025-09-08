@@ -4,7 +4,7 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import BusinessListingForm from "@/component/business/BusinessForm";
+import BusinessListingForm from "@/component/service/ServiceForm";
 
 export default function ListBusinessPage() {
   const { data: session, status } = useSession();
