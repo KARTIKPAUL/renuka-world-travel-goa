@@ -263,3 +263,36 @@
     width: 100%;
   }
 }
+/* Ensure proper spacing for content when sidebar is present */
+.sidebar-layout {
+  margin-left: 256px; /* 64 * 4 = 256px for expanded sidebar */
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar-layout.collapsed {
+  margin-left: 64px; /* 16 * 4 = 64px for collapsed sidebar */
+}
+
+/* Custom scrollbar for better UX */
+.sidebar-nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 2px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Ensure content area takes full height */
+.content-area {
+  height: 100vh;
+  overflow-y: auto;
+}

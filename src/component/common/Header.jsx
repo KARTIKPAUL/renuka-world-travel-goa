@@ -19,6 +19,11 @@ export default function Header() {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const { data: session, status } = useSession();
 
+  // Don't render Header for owners - they will use Sidebar instead
+  if (status === "authenticated" && session?.user?.role === "owner") {
+    return null;
+  }
+
   const handleSignOut = () => {
     signOut({ callbackUrl: "/" });
     setIsUserMenuOpen(false);
@@ -48,30 +53,12 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
-            {session?.user?.role === "owner" && (
-              <Link
-                href="/services"
-                className="px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium"
-              >
-                Servicess
-              </Link>
-            )}
-
-            {session?.user?.role === "owner" ? (
-              <Link
-                href="/add-service"
-                className="px-4 py-2 mx-2 bg-green-600 text-white hover:bg-green-700 rounded-lg transition-all duration-200 font-medium shadow-sm"
-              >
-                Add New Service
-              </Link>
-            ) : (
-              <Link
-                href="/services"
-                className="px-4 py-2 mx-2 bg-green-600 text-white hover:bg-green-700 rounded-lg transition-all duration-200 font-medium shadow-sm"
-              >
-                View Service
-              </Link>
-            )}
+            <Link
+              href="/services"
+              className="px-4 py-2 mx-2 bg-green-600 text-white hover:bg-green-700 rounded-lg transition-all duration-200 font-medium shadow-sm"
+            >
+              View Services
+            </Link>
 
             {/* Authentication Section */}
             {status === "authenticated" ? (
@@ -155,33 +142,13 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden border-t border-gray-200 bg-white min-h-screen min-w-full px-4 sm:px-6 lg:px-8">
             <div className="px-2 pt-4 pb-6 ">
-              {session?.user?.role === "owner" && (
-                <Link
-                  href="/services"
-                  className="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all font-medium"
-                  onClick={closeMenus}
-                >
-                  Services{" "}
-                </Link>
-              )}
-
-              {session?.user?.role === "owner" ? (
-                <Link
-                  href="/add-service"
-                  className="block px-4 py-3 text-green-600 hover:text-green-700 hover:bg-green-50 rounded-lg transition-all font-medium border border-green-200"
-                  onClick={closeMenus}
-                >
-                  Add New Service
-                </Link>
-              ) : (
-                <Link
-                  href="/services"
-                  className="block px-4 py-3 text-green-600 hover:text-green-700 hover:bg-green-50 rounded-lg transition-all font-medium border border-green-200"
-                  onClick={closeMenus}
-                >
-                  View Service
-                </Link>
-              )}
+              <Link
+                href="/services"
+                className="block px-4 py-3 text-green-600 hover:text-green-700 hover:bg-green-50 rounded-lg transition-all font-medium border border-green-200"
+                onClick={closeMenus}
+              >
+                View Services
+              </Link>
 
               {/* Mobile Authentication */}
               {status === "authenticated" ? (
