@@ -79,7 +79,7 @@ export async function GET(request) {
     }
 
     // Location filter
-    if (location && location !== "Coochbehar, West Bengal") {
+    if (location && location !== "Goa, Goa") {
       const locationQuery = {
         $or: [
           { "address.city": { $regex: location, $options: "i" } },

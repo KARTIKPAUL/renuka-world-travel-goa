@@ -27,8 +27,8 @@ export default function ProfileComplete() {
     address: {
       street: "",
       area: "",
-      city: "Coochbehar",
-      state: "West Bengal",
+      city: "",
+      state: "",
       pincode: "",
     },
   });

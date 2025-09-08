@@ -11,7 +11,7 @@ function LoadingSpinner() {
     <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">
         <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary-600"></div>
-        <p className="mt-4 text-gray-600">Loading businesses...</p>
+        <p className="mt-4 text-gray-600">Loading Services...</p>
       </div>
     </div>
   );
@@ -94,7 +94,7 @@ export default function BusinessesClient() {
         </div>
       ) : (
         <div className="text-center py-12">
-          <p className="text-gray-500 text-lg">No businesses found.</p>
+          <p className="text-gray-500 text-lg">No Service found.</p>
         </div>
       )}
     </div>

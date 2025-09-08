@@ -82,7 +82,7 @@ export default function CategoryGrid() {
             Browse by Categories
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Find exactly what you're looking for in Coochbehar
+            Find exactly what you're looking for in Goa
           </p>
         </div>
 

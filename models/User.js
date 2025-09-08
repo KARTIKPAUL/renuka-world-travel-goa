@@ -41,8 +41,8 @@ const UserSchema = new mongoose.Schema(
     address: {
       street: { type: String, trim: true },
       area: { type: String, trim: true },
-      city: { type: String, trim: true, default: "Coochbehar" },
-      state: { type: String, trim: true, default: "West Bengal" },
+      city: { type: String, trim: true },
+      state: { type: String, trim: true },
       pincode: {
         type: String,
         validate: {

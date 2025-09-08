@@ -133,9 +133,7 @@ export default function BusinessListings({
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto"></div>
             <p className="mt-4 text-gray-600">
-              {isSearchActive
-                ? "Searching businesses..."
-                : "Loading businesses..."}
+              {isSearchActive ? "Searching Services..." : "Loading Services..."}
             </p>
           </div>
         </div>
@@ -154,7 +152,7 @@ export default function BusinessListings({
                 <AlertCircle className="h-5 w-5 text-red-400 mt-0.5 mr-3" />
                 <div className="flex-1">
                   <h3 className="text-sm font-medium text-red-800">
-                    Error Loading Businesses
+                    Error Loading Services
                   </h3>
                   <p className="text-sm text-red-700 mt-1">{error}</p>
                 </div>

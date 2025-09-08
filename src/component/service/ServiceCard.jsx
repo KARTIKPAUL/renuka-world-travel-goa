@@ -1,13 +1,18 @@
 // src/components/business/BusinessCard.jsx
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { MapPin, Star, Phone } from "lucide-react";
 
 export default function BusinessCard({ business }) {
+  const { data: session, status } = useSession();
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
       <div className="relative">
         <img
-          src={business.images?.[0] || "https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20%281%20of%201%29-5.jpg?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YnVzaW5lc3N8ZW58MHx8MHx8fDA%3D"}
+          src={
+            business.images?.[0] ||
+            "https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20%281%20of%201%29-5.jpg?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YnVzaW5lc3N8ZW58MHx8MHx8fDA%3D"
+          }
           alt={business.name}
           className="w-full h-48 object-cover"
         />
@@ -40,17 +45,36 @@ export default function BusinessCard({ business }) {
           </div>
           <div className="flex items-center">
             <Star className="h-4 w-4 mr-2 text-yellow-400 fill-current" />
-            {business.rating?.toFixed(1) || "0.0"} (
-            {business.reviewCount || 0} reviews)
+            {business.rating?.toFixed(1) || "0.0"} ({business.reviewCount || 0}{" "}
+            reviews)
           </div>
         </div>
 
-        <Link
-          href={`/services/${business._id}`}
-          className="w-full bg-primary-600 hover:bg-primary-700 text-white py-2 rounded-lg transition-colors text-center block"
-        >
-          View Details
-        </Link>
+        {session?.user?.role === "owner" ? (
+          // Show only "View Service" for owner
+          <Link
+            href={`/services/${business._id}`}
+            className="w-full bg-primary-600 hover:bg-primary-700 text-white py-2 rounded-lg transition-colors text-center block"
+          >
+            View Service
+          </Link>
+        ) : (
+          // Show "Book Now" and "View Service" for normal users
+          <div className="flex space-x-3">
+            <Link
+              href={`/book/${business._id}`}
+              className="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition-colors text-center block"
+            >
+              Book Now
+            </Link>
+            <Link
+              href={`/services/${business._id}`}
+              className="flex-1 bg-primary-600 hover:bg-primary-700 text-white py-2 rounded-lg transition-colors text-center block"
+            >
+              View Service
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -4,15 +4,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
-import {
-  Menu,
-  X,
-  Search,
-  User,
-  MapPin,
-  LogOut,
-  ChevronDown,
-} from "lucide-react";
+import { Menu, X, User, LogOut, ChevronDown } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

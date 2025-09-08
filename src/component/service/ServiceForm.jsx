@@ -55,8 +55,8 @@ export default function BusinessListingForm() {
       street: "",
       area: "",
       pincode: "",
-      city: "Coochbehar",
-      state: "West Bengal",
+      city: "",
+      state: "",
     },
     coordinates: ["", ""], // [longitude, latitude]
     contact: {
@@ -334,8 +334,8 @@ export default function BusinessListingForm() {
           street: formData.address.street,
           area: formData.address.area,
           pincode: formData.address.pincode,
-          city: formData.address.city || "Coochbehar",
-          state: formData.address.state || "West Bengal",
+          city: formData.address.city,
+          state: formData.address.state,
         },
         location: {
           type: "Point",
@@ -432,9 +432,9 @@ export default function BusinessListingForm() {
                   }`}
                 >
                   {step === 1 && "Basic Info"}
-                  {step === 2 && "Location & Contact"}
-                  {step === 3 && "Images & Logo"}
-                  {step === 4 && "Hours & Social"}
+                  {step === 2 && "Location "}
+                  {step === 3 && "Images"}
+                  {step === 4 && "Hours"}
                   {step === 5 && "Review"}
                 </p>
               </div>
@@ -542,11 +542,11 @@ export default function BusinessListingForm() {
           </div>
         )}
 
-        {/* Step 2: Location & Contact */}
+        {/* Step 2: Location  */}
         {currentStep === 2 && (
           <div className="space-y-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Location & Contact Details
+              Location
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -611,51 +611,6 @@ export default function BusinessListingForm() {
               </div>
             </div>
 
-            {/* Coordinates (Optional) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Longitude (Optional)
-                </label>
-                <input
-                  type="number"
-                  step="any"
-                  value={formData.coordinates[0]}
-                  onChange={(e) => {
-                    const newCoords = [...formData.coordinates];
-                    newCoords[0] = e.target.value;
-                    setFormData((prev) => ({
-                      ...prev,
-                      coordinates: newCoords,
-                    }));
-                  }}
-                  className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                  placeholder="e.g., 80.1924"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Latitude (Optional)
-                </label>
-                <input
-                  type="number"
-                  step="any"
-                  value={formData.coordinates[1]}
-                  onChange={(e) => {
-                    const newCoords = [...formData.coordinates];
-                    newCoords[1] = e.target.value;
-                    setFormData((prev) => ({
-                      ...prev,
-                      coordinates: newCoords,
-                    }));
-                  }}
-                  className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                  placeholder="e.g., 21.4509"
-                />
-              </div>
-            </div>
-
             {/* Phone Numbers */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -694,43 +649,6 @@ export default function BusinessListingForm() {
                 Add another phone
               </button>
             </div>
-
-            {/* Email & Website */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Email
-                </label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.contact.email}
-                    onChange={(e) => handleInputChange(e, "contact")}
-                    className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                    placeholder="business@example.com"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Website
-                </label>
-                <div className="relative">
-                  <Globe className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                  <input
-                    type="url"
-                    name="website"
-                    value={formData.contact.website}
-                    onChange={(e) => handleInputChange(e, "contact")}
-                    className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                    placeholder="https://www.yourbusiness.com"
-                  />
-                </div>
-              </div>
-            </div>
           </div>
         )}
 
@@ -738,49 +656,8 @@ export default function BusinessListingForm() {
         {currentStep === 3 && (
           <div className="space-y-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Business Images & Logo
+              Service Images
             </h3>
-
-            {/* Business Logo */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Service Logo
-              </label>
-              <p className="text-sm text-gray-500 mb-4">
-                Upload your Service logo (recommended size: 300x300px)
-              </p>
-
-              <div className="flex items-start space-x-4">
-                <div className="flex-1">
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleLogoUpload}
-                    disabled={isUploadingLogo}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:text-sm file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100 disabled:opacity-50"
-                  />
-                  <p className="mt-1 text-xs text-gray-500">
-                    JPEG, PNG, GIF, or WebP. Max 5MB.
-                  </p>
-                </div>
-
-                {formData.logo && (
-                  <div className="w-20 h-20 border border-gray-200 rounded-lg overflow-hidden">
-                    <img
-                      src={formData.logo}
-                      alt="Service Logo"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                )}
-
-                {isUploadingLogo && (
-                  <div className="w-20 h-20 border border-gray-200 rounded-lg flex items-center justify-center">
-                    <div className="w-6 h-6 border-2 border-primary-600 border-t-transparent rounded-full animate-spin"></div>
-                  </div>
-                )}
-              </div>
-            </div>
 
             {/* Business Images */}
             <div>
@@ -846,7 +723,7 @@ export default function BusinessListingForm() {
         {currentStep === 4 && (
           <div className="space-y-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Business Hours & Social Media
+              Services Hours & Social Media
             </h3>
 
             {/* Business Hours */}
@@ -896,65 +773,6 @@ export default function BusinessListingForm() {
                     )}
                   </div>
                 ))}
-              </div>
-            </div>
-
-            {/* Social Media */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-4">
-                Social Media (Optional)
-              </label>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-600 mb-2">
-                    Facebook
-                  </label>
-                  <div className="relative">
-                    <Facebook className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                    <input
-                      type="url"
-                      name="facebook"
-                      value={formData.socialMedia.facebook}
-                      onChange={(e) => handleInputChange(e, "socialMedia")}
-                      className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                      placeholder="Facebook page URL"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-600 mb-2">
-                    Instagram
-                  </label>
-                  <div className="relative">
-                    <Instagram className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                    <input
-                      type="url"
-                      name="instagram"
-                      value={formData.socialMedia.instagram}
-                      onChange={(e) => handleInputChange(e, "socialMedia")}
-                      className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                      placeholder="Instagram profile URL"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-600 mb-2">
-                    WhatsApp
-                  </label>
-                  <div className="relative">
-                    <MessageCircle className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                    <input
-                      type="tel"
-                      name="whatsapp"
-                      value={formData.socialMedia.whatsapp}
-                      onChange={(e) => handleInputChange(e, "socialMedia")}
-                      className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                      placeholder="+91 9876543210"
-                    />
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -1016,7 +834,7 @@ export default function BusinessListingForm() {
         {currentStep === 5 && (
           <div className="space-y-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Review Your Business Listing
+              Review Service Listing
             </h3>
 
             <div className="bg-gray-50 rounded-lg p-6">
@@ -1124,9 +942,9 @@ export default function BusinessListingForm() {
 
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
               <p className="text-sm text-yellow-800">
-                <strong>Note:</strong> Your business listing will be reviewed by
-                our team before going live. This usually takes 24-48 hours.
-                You'll receive an email notification once approved.
+                <strong>Note:</strong> Service listing will be reviewed by This
+                usually takes 24-48 hours. You'll receive an email notification
+                once approved.
               </p>
             </div>
           </div>

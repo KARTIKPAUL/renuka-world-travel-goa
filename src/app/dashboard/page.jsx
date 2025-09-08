@@ -231,9 +231,7 @@ export default function Dashboard() {
               ) : (
                 <div className="text-center py-8 text-gray-500">
                   <p>No recent activity to show</p>
-                  <p className="text-sm mt-2">
-                    Start by listing your first business!
-                  </p>
+                  <p className="text-sm mt-2">Start by listing Service</p>
                 </div>
               )}
             </div>
